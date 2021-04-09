@@ -11,5 +11,5 @@ const sequelize = new Sequelize({
   ssl: 'Amazon RDS',
   pool: {maxConnections: 5, maxIdleTime: 30},
   language: 'en'
-
 });
+
