@@ -97,6 +97,58 @@ router.put('/weather_p', async (req, res) => {
     console.error(err);
     res.error('Server error');
   }
+
+//////////////////////////////////////
+////////// Region  Endpoints /////////
+//////////////////////////////////////
+
+router.get("/regions", async (req, res) => {
+  try {
+    const regions = await db.Regions.findAll();
+    res.json(regions);
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+router.get("/regions/:region_id", async (req, res) => {
+  try {
+    const regions = await db.Regions.findAll({
+      where: {
+        region_id: req.params.region_id,
+      },
+    });
+    res.json(regions);
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+router.put("/regions", async (req, res) => {
+  try {
+    await db.Regions.update(
+      {
+        city: req.body.city,
+        state: req.body.state,
+        zip_code: req.body.zip_code,
+      },
+      {
+        where: {
+          region_id: req.body.region_id,
+        },
+      }
+    );
+    res.send("Meal Successfully Updated");
+  } catch (err) {
+    console.error(err);
+    res.error("Server error");
+  }
+});
+
+
+
 });
 
 
