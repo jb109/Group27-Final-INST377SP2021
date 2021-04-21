@@ -22,15 +22,18 @@ export default (sequelize, DataTypes) => {
         type: DataTypes.DATETIME
       },
       weather_secondary_id: {
-        type: DataTypes.STRING
+        type: DataTypes.INTEGER,
+        primaryKey: false
       },
       region_id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        primaryKey: false
       },
       season_id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        primaryKey: false
       },
     },
     { freezeTableName: true, timestamps: false }
