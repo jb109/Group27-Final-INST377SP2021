@@ -10,9 +10,9 @@ router.get('/', (req, res) => {
   res.send('Welcome to the UMD Dining API!');
 });
 
-//////////////////////////////////////
-////////// Weather  Endpoints ////////
-//////////////////////////////////////
+/// ///////////////////////////////////
+/// /////// Weather  Endpoints ////////
+/// ///////////////////////////////////
 router.get('/weather_p', async (req, res) => {
   try {
     const events = await db.WeatherPrimary.findAll();
@@ -50,7 +50,7 @@ router.post('/weather_p', async (req, res) => {
       date: req.body.date,
       weather_secondary_id: req.body.weather_secondary_id,
       region_id: req.body.region_id,
-      session_id: req.body.session_id,
+      season_id: req.body.season_id,
     });
     res.json(newEvent);
   } catch (err) {
@@ -84,7 +84,7 @@ router.put('/weather_p', async (req, res) => {
         date: req.body.date,
         weather_secondary_id: req.body.weather_secondary_id,
         region_id: req.body.region_id,
-        session_id: req.body.session_id,
+        season_id: req.body.season_id,
       },
       {
         where: {
@@ -98,6 +98,5 @@ router.put('/weather_p', async (req, res) => {
     res.error('Server error');
   }
 });
-
 
 export default router;
