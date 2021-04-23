@@ -1,6 +1,6 @@
 export default (sequelize, DataTypes) => {
-  const Phases = sequelize.define(
-    'Celestial Phases',
+  const CelestialPhases = sequelize.define(
+    'CelestialPhases',
     {
       celestial_id: {
         type: DataTypes.INTEGER,
@@ -29,5 +29,5 @@ export default (sequelize, DataTypes) => {
     },
     { freezeTableName: true, timestamps: false }
   );
-  return Meals;
+  return CelestialPhases;
 };
