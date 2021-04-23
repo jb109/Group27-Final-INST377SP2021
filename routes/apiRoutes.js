@@ -99,8 +99,6 @@ router.put('/weather_p', async (req, res) => {
   }
 });
 
-export default router;
-
 /// ///////////////////////////////////
 /// //// ~* Celestial Endpoints *~ ////
 /// ///////////////////////////////////
